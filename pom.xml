@@ -77,8 +77,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<includes>
-						<!-- By default only files ending in 'Test' will be included, so also include support for Spock style naming convention -->
-						<!-- Oddly enough for Groovy files, *Spec.groovy does not work, but *Spec.java does -->
+						<!-- Por defecto solo los archivos acabados en 'Test' serán tomados en cuentapor lo tanto hay que añadir el soporte para los test de groovy acabados en Spec -->
+						<!-- aunque los archivos sean .groovy en el include se pone .java debido a una transpilación de groovy a java -->
 						<include>**/*Test.java</include>
 						<include>**/*Spec.java</include>
 					</includes>
