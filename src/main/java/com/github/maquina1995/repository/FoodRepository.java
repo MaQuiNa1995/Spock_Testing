@@ -28,7 +28,11 @@ public class FoodRepository {
 
 	public Food read(Long id) {
 
-		return null;
+		Food food = Food.builder().id(id).build();
+		int index = this.foods.indexOf(food);
+
+		return index == -1 ? null : this.foods.get(index);
+
 	}
 
 	public List<Food> read() {

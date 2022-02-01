@@ -1,32 +1,38 @@
 package com.github.maquina1995.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.github.maquina1995.domain.Food;
+import com.github.maquina1995.repository.FoodRepository;
+
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class FoodService {
 
-	public double sumar(double num1, double num2) {
-		return num1 + num2;
+	private final FoodRepository foodRepository;
+
+	public Long save(Food food) {
+		return foodRepository.save(food);
 	}
 
-	public double restar(double num1, double num2) {
-		return num1 - num2;
+	public Food read(Long id) {
+		return foodRepository.read(id);
 	}
 
-	public double multiplicar(double num1, double num2) {
-		return num1 * num2;
+	public List<Food> read() {
+		return foodRepository.read();
 	}
 
-	public Double dividir(Double dividendo, Double cociente) {
-
-		boolean parametrosIncorrectos = this.comprobarNulos(dividendo, cociente) || dividendo == 0d || cociente == 0d;
-		if (parametrosIncorrectos) {
-			throw new ArithmeticException("Ninguno de los 2 parametros puede ser cero");
-		}
-		return dividendo / cociente;
+	public boolean update(Food food) {
+		return foodRepository.update(food);
 	}
 
-	private boolean comprobarNulos(Double num1, Double num2) {
-		return (num1 == null || num2 == null);
+	public boolean delete(Long id) {
+		return foodRepository.delete(id);
 	}
+
 }
